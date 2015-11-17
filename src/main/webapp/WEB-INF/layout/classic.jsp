@@ -8,9 +8,9 @@
 <title><tiles:getAsString name="title" /></title>
 </head>
 <body>
-<tiles:insertAttribute name="body" />
+	<tiles:insertAttribute name="body" />
 
-<br></br>
+	<br></br>
 
 	<b><tiles:insertAttribute name="footer" /></b>
 
