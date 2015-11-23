@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
+import com.google.common.base.Objects;
 
 @Entity
 @Table(name = "USERS")
@@ -35,7 +36,7 @@ public class User {
     @Column(name = "password", length = 70, nullable = false)
     private String password;
 
-    @Size(min = 3, message = "Not valid email address")
+    @Size(min = 4, message = "Not valid email address")
     @Column(name = "email")
     private String email;
 
@@ -73,20 +74,16 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
+    public User() {
+        super();
+    }
+
     public Integer getUserId() {
         return userId;
     }
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     public String getLogin() {
@@ -113,4 +110,96 @@ public class User {
         this.email = email;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public UserState getUserState() {
+        return userState;
+    }
+
+    public void setUserState(UserState userState) {
+        this.userState = userState;
+    }
+
+    public Calendar getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Calendar birthday) {
+        this.birthday = birthday;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(userId, login, password, email, firstName, lastName, gender, userState, birthday,
+                country, region, city, role);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof User) {
+            User that = (User) object;
+            return Objects.equal(this.userId, that.userId) && Objects.equal(this.login, that.login)
+                    && Objects.equal(this.password, that.password) && Objects.equal(this.email, that.email)
+                    && Objects.equal(this.firstName, that.firstName) && Objects.equal(this.lastName, that.lastName)
+                    && Objects.equal(this.gender, that.gender) && Objects.equal(this.userState, that.userState)
+                    && Objects.equal(this.birthday, that.birthday) && Objects.equal(this.country, that.country)
+                    && Objects.equal(this.region, that.region) && Objects.equal(this.city, that.city)
+                    && Objects.equal(this.role, that.role);
+        }
+        return false;
+    }
 }
