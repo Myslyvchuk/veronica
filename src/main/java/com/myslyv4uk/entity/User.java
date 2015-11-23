@@ -2,6 +2,7 @@ package com.myslyv4uk.entity;
 
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -60,14 +61,15 @@ public class User {
     @Column(name = "birth_date")
     private Calendar birthday;
 
-    @Column(name = "country", length = 50)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
     @Column(name = "region", length = 50)
     private String region;
 
-    @ManyToOne
-    @Column(name = "region", length = 50)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "city_id", nullable = true)
     private City city;
 
     @ManyToOne
