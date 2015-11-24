@@ -24,7 +24,7 @@ import com.google.common.base.Objects;
 public class User {
 
     @Id
-    @SequenceGenerator(name = "users_user_id_seq", sequenceName = "users_user_id_seq", allocationSize = 101)
+    @SequenceGenerator(name = "users_user_id_seq", sequenceName = "users_user_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_user_id_seq")
     @Column(name = "user_id", unique = true, nullable = false)
     private Integer userId;
@@ -61,19 +61,19 @@ public class User {
     @Column(name = "birth_date")
     private Calendar birthday;
 
+    @Column(name = "region", length = 50)
+    private String region;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
-
-    @Column(name = "region", length = 50)
-    private String region;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "city_id", nullable = true)
     private City city;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_id", nullable = true)
     private Role role;
 
     public User() {
@@ -152,20 +152,20 @@ public class User {
         this.birthday = birthday;
     }
 
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
-
     public String getRegion() {
         return region;
     }
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public City getCity() {
@@ -187,7 +187,7 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hashCode(userId, login, password, email, firstName, lastName, gender, userState, birthday,
-                country, region, city, role);
+                region, country, city, role);
     }
 
     @Override
@@ -198,8 +198,8 @@ public class User {
                     && Objects.equal(this.password, that.password) && Objects.equal(this.email, that.email)
                     && Objects.equal(this.firstName, that.firstName) && Objects.equal(this.lastName, that.lastName)
                     && Objects.equal(this.gender, that.gender) && Objects.equal(this.userState, that.userState)
-                    && Objects.equal(this.birthday, that.birthday) && Objects.equal(this.country, that.country)
-                    && Objects.equal(this.region, that.region) && Objects.equal(this.city, that.city)
+                    && Objects.equal(this.birthday, that.birthday) && Objects.equal(this.region, that.region)
+                    && Objects.equal(this.country, that.country) && Objects.equal(this.city, that.city)
                     && Objects.equal(this.role, that.role);
         }
         return false;

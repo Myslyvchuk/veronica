@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import com.google.common.base.Objects;
 
 @Entity
 @Table(name = "COUNTRIES")
@@ -59,4 +60,26 @@ public class Country {
         this.cities = cities;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(countryId, name, cities, users);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Country) {
+            Country that = (Country) object;
+            return Objects.equal(this.countryId, that.countryId) && Objects.equal(this.name, that.name)
+                    && Objects.equal(this.cities, that.cities) && Objects.equal(this.users, that.users);
+        }
+        return false;
+    }
 }

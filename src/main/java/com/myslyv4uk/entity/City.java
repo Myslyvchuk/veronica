@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import com.google.common.base.Objects;
 
 @Entity
 @Table(name = "CITIES")
@@ -65,4 +66,26 @@ public class City {
         this.country = country;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(cityId, name, country, users);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof City) {
+            City that = (City) object;
+            return Objects.equal(this.cityId, that.cityId) && Objects.equal(this.name, that.name)
+                    && Objects.equal(this.country, that.country) && Objects.equal(this.users, that.users);
+        }
+        return false;
+    }
 }
