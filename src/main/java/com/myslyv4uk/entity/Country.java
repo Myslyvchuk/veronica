@@ -36,6 +36,10 @@ public class Country {
         super();
     }
 
+    public Country(String name) {
+        this.name = name;
+    }
+
     public Integer getCountryId() {
         return countryId;
     }

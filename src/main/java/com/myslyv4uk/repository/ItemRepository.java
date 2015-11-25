@@ -1,4 +1,4 @@
-package com.myslyv4uk.repositories;
+package com.myslyv4uk.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

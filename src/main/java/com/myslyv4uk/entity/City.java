@@ -42,6 +42,15 @@ public class City {
         super();
     }
 
+    public City(String name) {
+        this.name = name;
+    }
+
+    public City(String name, Country country) {
+        this(name);
+        this.country = country;
+    }
+
     public Integer getCityId() {
         return cityId;
     }
