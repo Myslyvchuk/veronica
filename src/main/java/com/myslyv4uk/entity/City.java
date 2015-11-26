@@ -2,7 +2,6 @@ package com.myslyv4uk.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,7 +30,7 @@ public class City {
     @Size(min = 3, message = "Name must be at least 3 characters!")
     private String name;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
 
