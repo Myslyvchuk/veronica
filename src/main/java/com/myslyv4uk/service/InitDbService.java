@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.myslyv4uk.entity.City;
 import com.myslyv4uk.entity.Country;
 import com.myslyv4uk.entity.Gender;
