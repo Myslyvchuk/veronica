@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.myslyv4uk.entity.City;
 import com.myslyv4uk.entity.Country;
@@ -38,6 +39,7 @@ public class InitDbService {
     private CountryRepository countryRepository;
 
     @PostConstruct
+    @Transactional
     public void init() {
         Role adminRole = new Role();
         adminRole.setRole("ADMIN");
