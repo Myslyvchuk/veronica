@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,8 @@
 <body>
 	<div class="navbar-wrapper">
 		<div class="container">
-
+<tilesx:useAttribute name="current"/>
+	${current}
 			<nav class="navbar navbar-inverse navbar-static-top">
 				<div class="container">
 					<div class="navbar-header">
@@ -40,9 +42,9 @@
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href=<spring:url value="/index.html"></spring:url>>Home</a></li>
+							<li class=${current== 'index' ? 'active' : ''}><a href=<spring:url value="/index.html"></spring:url>>Home</a></li>
 							<li><a href="#about">About</a></li>
-							<li><a href=<spring:url value="/users.html" />>Users</a></li>
+							<li class=${current== 'users' ? 'active' : ''}><a href=<spring:url value="/users.html" />>Users</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false">Dropdown <span class="caret"></span></a>
