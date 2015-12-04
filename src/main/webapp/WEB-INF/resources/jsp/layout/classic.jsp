@@ -21,7 +21,7 @@
 </head>
 <body>
 	<div class="navbar-wrapper">
-		<div class="container">
+<!--  	<div class="container">
 <tilesx:useAttribute name="current"/>
 	${current}
 			<nav class="navbar navbar-inverse navbar-static-top">
@@ -58,7 +58,9 @@
 				</div>
 			</nav>
 
-		</div>
+		</div>-->
+		
+		<tiles:insertAttribute name="header" />
 		<tiles:insertAttribute name="body" />
 
 		<br></br> <b><tiles:insertAttribute name="footer" /></b>
