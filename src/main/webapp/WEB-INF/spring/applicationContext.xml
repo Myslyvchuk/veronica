@@ -12,6 +12,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
     
+  
     <jpa:repositories base-package="com.myslyv4uk.repository" />
     <tx:annotation-driven transaction-manager="transactionManager" />
 
@@ -22,7 +23,7 @@
 	
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-		p:location="/WEB-INF/resources/jdbc.properties" />
+		p:location="/resources/jdbc.properties" />
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
