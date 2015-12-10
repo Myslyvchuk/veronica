@@ -1,0 +1,15 @@
+.navbar-inverse {
+	background-image:linear-gradient(to bottom, #66194c 0%, #cc3399 100%);
+}
+
+.navbar-brand{
+	height:100px;
+	padding: 4px 10px;
+}
+
+#veronica_logo {
+	top: 0px;
+}
+#container_position{
+	width:800px; margin:0 auto;
+}

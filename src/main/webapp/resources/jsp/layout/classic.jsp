@@ -7,6 +7,8 @@
 	href="resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css"
 	href="resources/css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/css/style.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script
