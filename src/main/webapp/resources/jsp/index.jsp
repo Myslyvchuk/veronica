@@ -1,4 +1,3 @@
-SPRING FRAMEWORK
 <div class="container theme-showcase" role="main">
 	<div id="carousel-example-generic" class="carousel slide"
 		data-ride="carousel">

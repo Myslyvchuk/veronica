@@ -3,12 +3,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css"
 	href="resources/css/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css"
-	href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/sticky-footer-navbar.css" >
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script
